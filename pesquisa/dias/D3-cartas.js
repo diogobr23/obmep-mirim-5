@@ -1,0 +1,2 @@
+{ id: 'd3-carimbo', desde: '2026-10-23', p: 'Num carimbo de mão com os dedos para cima, o dedão está do lado esquerdo. Foi a mão direita ou a esquerda?', r: 'Mão direita. Teste: põe a mão direita na mesa, palma para baixo, e olha de que lado fica o dedão.' },
+{ id: 'd3-escondido', desde: '2026-10-23', p: 'Uma pilha tem 4 cubinhos embaixo (2 na frente e 2 atrás) e 1 em cima. De frente você vê só 3. Quantos cubinhos a pilha tem?', r: '5. Os 2 de trás ficam escondidos, mas também contam: 4 + 1 = 5.' },

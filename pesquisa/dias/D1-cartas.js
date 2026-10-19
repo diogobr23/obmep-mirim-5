@@ -1,0 +1,2 @@
+{ id: 'd1-armadilhas', desde: '2026-10-21', p: 'Quais são as palavras-armadilha que eu circulo na pergunta?', r: 'NÃO, COM CERTEZA e O MENOR ou O MAIOR POSSÍVEL. Uma palavrinha dessas muda a resposta inteira.' },
+{ id: 'd1-certeza', desde: '2026-10-21', p: 'A pergunta diz COM CERTEZA. Que resposta ela quer?', r: 'A que vale em TODOS os casos. Para riscar uma letra, basta achar um caso em que ela não acontece.' },

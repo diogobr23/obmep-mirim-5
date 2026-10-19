@@ -1,0 +1,2 @@
+{ id: 'd2-balanca', desde: '2026-10-22', p: 'Numa balança equilibrada tem a mesma coisa nos dois pratos. O que você pode fazer com ela?', r: 'Tirar dos dois pratos ao mesmo tempo. A balança continua equilibrada e sobra uma conta mais simples.' },
+{ id: 'd2-contrario', desde: '2026-10-22', p: 'A historinha termina num número e pergunta o número do começo. Como você resolve?', r: 'Volta de trás pra frente fazendo a conta contrária: o que foi somado você tira, o que foi tirado você soma. Depois confere indo pra frente.' },

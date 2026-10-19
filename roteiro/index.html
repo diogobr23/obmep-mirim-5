@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meu treino OBMEP Mirim</title>
+<style>
+  :root { --bg:#f6f7fb; --card:#fff; --ink:#1d2330; --muted:#5b6475; --line:#e3e6ee;
+          --mat:#2b6cb0; --ok:#2f9e44; --dica:#fff7d6; --dica-ink:#6b4e00; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width:720px; margin:0 auto; padding:20px 16px 60px }
+  h1 { font-size:26px; margin:0 0 4px }
+  .sub { color:var(--muted); margin:0 0 18px }
+  .count { display:inline-block; background:var(--ink); color:#fff; border-radius:999px; padding:4px 12px; font-weight:600 }
+  .como { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:18px }
+  .como ol { margin:6px 0 0 18px; padding:0 }
+  .dia { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:16px }
+  .dia h2 { margin:0; font-size:20px } .dia .quando { color:var(--muted); font-size:15px; margin:2px 0 10px }
+  .semana { background:var(--ink); color:#fff; border-radius:14px; padding:12px 16px; margin-bottom:16px }
+  .semana b { font-size:17px } .semana .t { color:#c8cedb; font-size:14px; margin:2px 0 0 }
+  .btn-sec { background:none; border:0; color:var(--muted); font:inherit; font-size:14px; text-decoration:underline; cursor:pointer; padding:6px }
+  .dia.fora { display:none } body.tudo .dia.fora { display:block }
+  .dia.hoje { border-color:var(--mat); box-shadow:0 0 0 2px rgba(43,108,176,.18) }
+  .dia .hoje-tag { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:var(--ok); border-radius:6px; padding:2px 8px; margin-left:6px; vertical-align:middle }
+  .ref details.abrir { margin-top:8px } .ref details.abrir summary { font-size:16px }
+  details.grupo { margin-top:10px; background:#eef2f8; border-radius:12px; padding:10px 14px }
+  details.grupo > summary { font-size:16px; font-weight:700 }
+  details.grupo h4 { margin:14px 0 6px; font-size:16px; color:var(--mat); border-bottom:1px solid var(--line); padding-bottom:4px }
+  details.grupo details.res { background:#fff }
+  .ref.azul { border-color:var(--mat) }
+  .ref.verde { border-color:var(--ok) }
+  .ref ol { margin:6px 0 0 20px; padding:0 } .ref ol li { margin:5px 0 }
+  .ref { background:var(--card); border:2px solid #b7770d; border-radius:16px; padding:16px; margin-bottom:16px }
+  .ref h2 { margin:0 0 2px; font-size:20px } .ref .quando { color:var(--muted); font-size:15px; margin:0 0 10px }
+  .ref h3 { font-size:16px; margin:14px 0 6px }
+  .ref ul { margin:6px 0 0 20px; padding:0 } .ref li { margin:4px 0 }
+  .ref .zera { background:#fdeeea; border-radius:12px; padding:10px 14px; margin-top:6px }
+  .ref .zera li { color:#8a3b00 }
+  .ref .check { background:#e6f7ea; border-radius:12px; padding:10px 14px; margin-top:6px }
+  .ref .obs { color:var(--muted); font-size:14px; margin-top:10px }
+  .tag.port { background:#7048b0 } .tag.sim { background:#c0392b } .tag.red { background:#b7770d } .tag.rev { background:#2f9e44 }
+  .res u { text-decoration:underline; font-weight:600 }
+  .tag { display:inline-block; font-size:13px; font-weight:700; color:#fff; background:var(--mat); border-radius:6px; padding:2px 8px; margin-left:6px; vertical-align:middle }
+  .passo { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-top:1px dashed var(--line) }
+  .passo input { width:26px; height:26px; margin:2px 0 0; flex:none; accent-color:var(--ok) }
+  .passo label { flex:1; cursor:pointer }
+  .passo .corpo { flex:1 } .passo .corpo label { display:block }
+  .passo .t { color:var(--muted); font-size:14px }
+  .passo:has(input:checked) label { text-decoration:line-through; color:var(--muted) }
+  a { color:var(--mat); font-weight:600 }
+  .dica { background:var(--dica); color:var(--dica-ink); border-radius:12px; padding:12px 14px; margin-top:12px }
+  .dica b { display:block; margin-bottom:4px }
+  details { margin-top:6px; font-size:15px } summary { cursor:pointer; color:var(--mat); font-weight:600 }
+  details.res { background:#f0f4fa; border-radius:12px; padding:10px 14px 14px }
+  .res .quer { margin:8px 0 4px; font-weight:600 }
+  .res .passo-r { display:flex; gap:10px; align-items:flex-start; margin:10px 0 }
+  .res .n { flex:none; width:26px; height:26px; border-radius:50%; background:var(--mat); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; margin-top:2px }
+  .res .passo-r > div { flex:1; min-width:0 }
+  .res .mat { text-align:center; margin:4px 0; overflow-x:auto }
+  .res .katex-display { margin:8px 0 }
+  .res .katex { font-size:1.12em }
+  .res .resp { background:#e6f7ea; color:#1d6b2d; border-radius:10px; padding:8px 12px; margin-top:12px; font-weight:700; font-size:16px }
+  .res .atalho { background:#fff7d6; color:#6b4e00; border-radius:10px; padding:8px 12px; margin-top:8px }
+  .res .esc { background:#fdeeea; color:#8a3b00; border-radius:10px; padding:8px 12px; margin-top:8px }
+  .res .video { margin-top:8px; font-size:14px }
+  .res table.tab { border-collapse:collapse; margin:6px 0; font-size:15px } .res table.tab td { padding:3px 10px; border-bottom:1px solid #d9e0ea }
+  .res table.tab td:last-child { text-align:right; font-weight:600 }
+  .barra { display:flex; gap:3px; margin:6px 0 } .barra span { flex:1; height:22px; border-radius:4px; background:#dbe7f7; border:1px solid #9bb8e0 } .barra span.ok { background:var(--mat) }
+  .barra.fina span { height:16px } .legenda { font-size:13px; color:var(--muted); margin-bottom:6px }
+  svg.malha { display:block; max-width:100%; height:auto; margin:4px 0 }
+  .escada { margin:8px 0 4px } .escada .deg { display:flex; gap:4px }
+  .escada .deg span { flex:1; text-align:center; background:#fff; border:1px solid #9bb8e0; border-radius:6px; padding:4px 0; font-weight:700; font-size:14px }
+  .escada .deg span.aqui { background:var(--mat); color:#fff; border-color:var(--mat) }
+  .escada .deg.num { margin-top:3px }
+  .escada .deg.num span { font-weight:400; font-size:17px; background:#fffbe6; border-style:dashed; min-height:1.4em }
+  .escada .deg.num span.z { color:#c0392b; font-weight:700 }
+  .escada .seta { display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-top:3px }
+  .escada .seta b { color:var(--ink) }
+  .res .alt { margin:6px 0 } .res .alt b.x { color:#8a3b00 } .res .alt b.v { color:#1d6b2d }
+  .fim { text-align:center; color:var(--muted); font-size:15px; margin-top:8px }
+  .prog { font-size:14px; color:var(--muted); margin-top:8px }
+  .carta-box { margin-top:10px; text-align:center }
+  .carta-cont { color:var(--muted); font-size:14px; margin:0 0 8px }
+  .carta { background:#fffdf5; border:2px solid #e6d9a8; border-radius:14px; padding:22px 16px; min-height:130px; display:flex; flex-direction:column; justify-content:center; gap:12px }
+  .carta-p { font-size:19px; font-weight:700 }
+  .carta-r { font-size:18px; color:#1d6b2d; background:#e6f7ea; border-radius:10px; padding:10px 12px }
+  .carta-bts { display:flex; gap:10px; justify-content:center; margin-top:12px; flex-wrap:wrap }
+  .carta-bts button { font:inherit; font-weight:700; border:0; border-radius:10px; padding:10px 18px; cursor:pointer; color:#fff; background:var(--mat) }
+  .carta-bts button.ok { background:var(--ok) } .carta-bts button.nao { background:#b7770d }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Meu treino pra OBMEP Mirim 🧩</h1>
+  <p class="sub">2ª fase: terça, 10 de novembro · 15 questões · 1h30. <span class="count" id="contagem">…</span></p>
+
+  <div class="como">
+    <b>Como funciona</b>
+    <ol>
+      <li>A página mostra <b>só os dias desta semana</b>. Na segunda, os próximos aparecem sozinhos.</li>
+      <li>Antes do primeiro dia, lê uma vez o card <a href="#como-ler">🔍 Como ler uma questão de olimpíada</a> aqui em cima. Ele vale pra todas as questões.</li>
+      <li>Cada dia leva <b>30 a 40 minutos</b>. Faz os passos na ordem e <b>marca a caixinha</b> quando terminar. Sábado tem <span class="tag sim">Prova</span>: uma prova inteira de verdade, 1h30.</li>
+      <li>As questões são <b>da OBMEP de verdade</b>. O link abre a prova na página certa; procura o <b>número da questão</b>. Faz no caderno e só depois abre a resolução.</li>
+      <li>As últimas questões do dia (💪) são mais difíceis, de propósito. Errar faz parte do treino: o importante é entender a resolução depois.</li>
+      <li>Travou? Abre a 💡 dica primeiro. Ainda travou? Anota o número da questão no caderno e conta pro Diogo. Não fica preso.</li>
+    </ol>
+  </div>
+
+  <section class="ref verde" id="cartas">
+    <h2>🃏 Cartinhas <span class="tag">3 minutos</span></h2>
+    <p class="quando">Uma rodada rápida: lê a pergunta, responde de cabeça, vira a carta. Errou? Aparece de novo no fim da rodada e volta amanhã. Acertou várias vezes? Ela demora mais pra voltar. Sem pressa e sem nota.</p>
+    <details class="abrir"><summary>Abrir as cartinhas</summary>
+      <div class="carta-box">
+        <p class="carta-cont" id="carta-cont"></p>
+        <div class="carta" id="carta">
+          <div class="carta-p" id="carta-p"></div>
+          <div class="carta-r" id="carta-r" hidden></div>
+        </div>
+        <div class="carta-bts" id="carta-bts"></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="ref azul" id="como-ler">
+    <h2>🔍 Como ler uma questão de olimpíada <span class="tag">Toda questão</span></h2>
+    <p class="quando">Na OBMEP Mirim as contas são pequenas. O que derruba é <b>ler rápido demais</b> e <b>se perder na organização</b>. Estes 5 passos resolvem isso.</p>
+    <details class="abrir"><summary>Abrir os 5 passos</summary>
+    <div class="check"><ol>
+      <li>🎯 <b>Lê a pergunta até o fim</b> e escreve no cantinho, em poucas palavras, o que ela quer ("quero: quantas meninas").</li>
+      <li>⭕ <b>Circula as palavras-armadilha:</b>
+        <ul>
+          <li><b>NÃO</b> ("qual NÃO pode ser"): a resposta é a que não serve.</li>
+          <li><b>"com certeza"</b>: vale em todos os casos, não só às vezes.</li>
+          <li><b>"o menor"</b> / <b>"o maior possível"</b>: testa mais de um jeito e fica com o melhor.</li>
+        </ul></li>
+      <li>👀 <b>Olha a figura com calma.</b> Às vezes um número só está no desenho, e às vezes tem coisa escondida atrás.</li>
+      <li>📋 <b>Organiza antes de contar:</b> faz uma lista, uma tabelinha ou um desenho pequeno. Uma conta por linha.</li>
+      <li>✅ <b>Testa as alternativas.</b> Escreve A, B, C, D, E e risca as que quebram alguma regra. Antes de marcar, <b>relê a pergunta</b>: "era isso mesmo que ela queria?"</li>
+    </ol></div>
+    <div class="dica"><b>🆘 Bateu o "não sei nada"?</b>Faz o pedaço mais fácil primeiro, ou testa as alternativas uma por uma. Passou de 6 minutos? Marca "?" e vai pra próxima: você volta no fim.</div>
+    </details>
+  </section>
+
+  <div class="semana">
+    <b id="semana-tit">Esta semana</b>
+    <p id="semana-sub" class="t">…</p>
+  </div>
+
+  <section class="dia" data-dia="D1" data-data="2026-10-20">
+    <h2>Dia 1 — Ler como olímpico + lógica por eliminação <span class="tag">Lógica</span></h2>
+    <p class="quando">terça, 20/10 · ⏱ 30 a 40 min</p>
+  
+    <div class="passo"><input type="checkbox" id="d1c"><label for="d1c">🃏 <b>Cartinhas</b> (3 min): abre as <a href="#cartas">🃏 Cartinhas</a> lá em cima, faz a rodada e volta pra cá.</label></div>
+  
+    <div class="passo"><input type="checkbox" id="d1i"><div class="corpo"><label for="d1i">🧠 <b>A ideia de hoje</b> (7 min): na Olimpíada, a conta quase sempre é pequena. O que pega é <b>ler</b>. Hoje são 3 hábitos de quem lê como olímpico.</label>
+      <div class="check"><ol style="margin:6px 0 0 20px;padding:0">
+        <li><b>Circula as palavras-armadilha.</b> São três: <b>NÃO</b>, <b>"com certeza"</b> e <b>"o menor possível" / "o maior possível"</b>. Uma palavrinha dessas muda a resposta inteira.</li>
+        <li><b>Testa alternativa por alternativa.</b> Pega a regra da questão e confere uma letra de cada vez. A que quebra a regra, risca. No fim, sobra uma.</li>
+        <li><b>Monta uma tabelinha de "quem é quem".</b> Quando tem várias pessoas e várias coisas, faz uma tabela no caderno: pessoas numa linha, coisas na outra. Marca ✗ no que não pode e ✓ no que tem que ser.</li>
+      </ol></div>
+      <details class="res" open><summary>👀 Olha eu pensando em voz alta</summary>
+        <p>"Lia, Rui e Téo têm um bicho cada um: um gato, um cachorro e um peixe. Rui tem o peixe. Lia <b>NÃO</b> tem o gato. Qual bicho Téo tem?"<br>(A) peixe (B) cachorro (C) gato (D) nenhum (E) não dá pra saber</p>
+        <div class="passo-r"><span class="n">1</span><div>Primeiro circulo a armadilha: <b>NÃO</b>. Lia <b>não</b> tem o gato. Se eu pulasse esse "não", ia errar tudo.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Tem 3 pessoas e 3 bichos, então faço a tabelinha:
+          <table style="border-collapse:collapse;margin:6px 0;text-align:center">
+            <tr><th style="border:1px solid #999;padding:2px 8px"></th><th style="border:1px solid #999;padding:2px 8px">gato</th><th style="border:1px solid #999;padding:2px 8px">cachorro</th><th style="border:1px solid #999;padding:2px 8px">peixe</th></tr>
+            <tr><td style="border:1px solid #999;padding:2px 8px">Lia</td><td style="border:1px solid #999;padding:2px 8px">✗</td><td style="border:1px solid #999;padding:2px 8px">✓</td><td style="border:1px solid #999;padding:2px 8px">✗</td></tr>
+            <tr><td style="border:1px solid #999;padding:2px 8px">Rui</td><td style="border:1px solid #999;padding:2px 8px">✗</td><td style="border:1px solid #999;padding:2px 8px">✗</td><td style="border:1px solid #999;padding:2px 8px">✓</td></tr>
+            <tr><td style="border:1px solid #999;padding:2px 8px">Téo</td><td style="border:1px solid #999;padding:2px 8px">✓</td><td style="border:1px solid #999;padding:2px 8px">✗</td><td style="border:1px solid #999;padding:2px 8px">✗</td></tr>
+          </table>
+          Rui tem o peixe: ✓ no peixe dele, e ✗ no resto da linha e da coluna. Lia não tem gato: ✗. Pra Lia só sobra o cachorro. Pra Téo só sobra o gato.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Agora testo as letras. (A) peixe? Não, é do Rui: risco. (B) cachorro? É da Lia: risco. (C) gato? Sobrou pra ele: ✓. (D) e (E)? A tabela mostrou que dá pra saber: risco.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Resposta: <b>(C) gato</b>. Confiro: cada um tem um bicho, Rui tem o peixe e Lia não tem o gato. ✔️</div></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1q1"><div class="corpo"><label for="d1q1">✏️ <b>1ª questão</b> (4 min) — abre a <a href="../provas/2024-1fase-prova.pdf#page=3" target="_blank">prova 2024, 1ª fase, página 3</a> e faz a <b>questão 6</b> (os desenhos da Ana).</label>
+      <details><summary>💡 Dica (só se travar)</summary>Circula o <b>NÃO</b> da pergunta. Depois olha cada desenho: ele tem alguma figura branca? Se tiver, tem também alguma preta?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o desenho que <b>NÃO</b> pode ser o da Ana, ou seja, o que <b>quebra</b> a regra.</div>
+        <div class="passo-r"><span class="n">1</span><div>A regra: se tem figura <b>branca</b>, tem que ter pelo menos uma <b>preta</b>.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Testo letra por letra. (A) tem branco e tem preto: ok. (B) tem branco e tem preto: ok. (C) não tem nenhuma branca, então a regra nem entra em jogo: ok. (E) tem branco e tem preto: ok.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>(D) tem o círculo e o quadrado <b>brancos</b>, e o triângulo é <b>cinza</b>. Não tem preto! Quebra a regra.</div></div>
+        <div class="resp">✅ Resposta: letra D</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Procura direto o desenho que tem branco e não tem preto.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Riscar o (C) porque não tem branco. A regra só manda alguma coisa quando aparece uma figura branca.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1q2"><div class="corpo"><label for="d1q2">✏️ <b>2ª questão</b> (3 min) — abre a <a href="../provas/2026-1fase-prova.pdf#page=3" target="_blank">prova 2026, 1ª fase, página 3</a> e faz a <b>questão 6</b> (as cinco meninas). Você fez essa prova na 1ª fase deste ano, então talvez lembre dela. Vale refazer do mesmo jeito, explicando cada passo.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Circula o "com certeza". Escreve as idades possíveis numa linha, de 8 até 12. Quantas idades cabem ali?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: a frase que é verdade <b>com certeza</b>, em qualquer caso.</div>
+        <div class="passo-r"><span class="n">1</span><div>De 8 até 12 cabem só estas idades: 8, 9, 10, 11, 12. São 5 idades.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>São 5 meninas, todas com idades <b>diferentes</b>. Então cada uma fica com uma dessas idades: alguém tem 8, alguém 9, alguém 10, alguém 11 e alguém 12.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Testo as letras. (A) 13 anos? A mais velha tem 12: risco. (B) ninguém tem 11? Alguém tem: risco. (C) alguém tem 10? Sim: ✓. (D) ninguém tem 9? Alguém tem: risco. (E) 7 anos? A mais nova tem 8: risco.</div></div>
+        <div class="resp">✅ Resposta: letra C</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Quando a pergunta fala de idades diferentes entre um número e outro, escreve todas numa linha e vê se cabem certinho.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Esquecer a palavra "diferentes". Sem ela, duas meninas poderiam ter a mesma idade e nada seria certo.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1q3"><div class="corpo"><label for="d1q3">✏️ <b>3ª questão</b> (4 min) — abre a <a href="../provas/2023-1fase-prova.pdf#page=3" target="_blank">prova 2023, 1ª fase, página 3</a> e faz a <b>questão 8</b> (as balanças).</label>
+      <details><summary>💡 Dica (só se travar)</summary>Na balança, o prato que <b>desce</b> tem a bolinha mais pesada. Uma bolinha que estava num prato que <b>subiu</b> pode ser a mais pesada de todas?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: a bolinha <b>mais pesada</b> de todas.</div>
+        <div class="passo-r"><span class="n">1</span><div>Em cada balança, quem está no prato que subiu perdeu para alguém. Então <b>não</b> é a mais pesada. Vou riscando.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>1ª balança: a preta desce e a do triângulo sobe → risco a do <b>triângulo</b>. 2ª: a cinza desce e a branca sobe → risco a <b>branca</b>.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>3ª: a do hexágono desce e a cinza sobe → risco a <b>cinza</b>. 4ª: a branca desce e a preta sobe → risco a <b>preta</b>.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Só sobrou a branca com o <b>hexágono</b>. Confiro em fila: hexágono &gt; cinza &gt; branca &gt; preta &gt; triângulo. ✔️</div></div>
+        <div class="resp">✅ Resposta: letra E</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>A mais pesada nunca aparece num prato que subiu. Risca todas que subiram alguma vez.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Escolher a preta só porque ela desce na 1ª balança. Na 4ª balança ela sobe, então tem alguém mais pesado que ela.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1q4"><div class="corpo"><label for="d1q4">✏️ <b>4ª questão</b> (5 min) — abre a <a href="../provas/2024-1fase-prova.pdf#page=3" target="_blank">prova 2024, 1ª fase, página 3</a> e faz a <b>questão 7</b> (o nariz do Pinóquio).</label>
+      <details><summary>💡 Dica (só se travar)</summary>Começa pelo fim. O nariz normal tem 3 cm e terminou com 18 cm. Quantas mentiras seguidas fazem 3 virar 18?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: a frase que foi verdade <b>com certeza</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>Quando ele fala a verdade, o nariz volta para 3 cm. Então o que conta é só o que veio <b>depois</b> da última verdade.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>O nariz cresceu 18 − 3 = 15 cm. Cada mentira dá 5 cm: 15 ÷ 5 = <b>3 mentiras</b> seguidas no fim.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>As 3 últimas frases (3ª, 4ª e 5ª) foram mentira. Se a 2ª também fosse mentira, seriam 4 mentiras seguidas e o nariz passaria de 18. Então a <b>2ª foi verdade</b>: ali o nariz voltou para 3 cm.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>E a 1ª? Tanto faz: a 2ª frase "apagou" o que aconteceu antes. Por isso a 1ª não é "com certeza".</div></div>
+        <div class="resp">✅ Resposta: letra B (a segunda)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Testa do fim para o começo: se a 5ª fosse verdade, o nariz terminaria com 3 cm; se a 4ª fosse, com 8; se a 3ª fosse, com 13; se a 2ª fosse, com 18. Achou!</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Marcar a 1ª porque "ele começou falando a verdade". Pode ter sido mentira também, e o nariz ficaria igual.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1q5"><div class="corpo"><label for="d1q5">💪 <b>5ª questão, sem ajuda</b> (4 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=4" target="_blank">prova 2022, 2ª fase, página 4</a> e faz a <b>questão 12</b> (os aniversários). Circula o "com certeza" antes de começar.</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o que acontece <b>com certeza</b>, em qualquer turma de 13 alunos.</div>
+        <div class="passo-r"><span class="n">1</span><div>Imagino o jeito mais espalhado possível: os primeiros 12 alunos, cada um num mês diferente. Todos os 12 meses ficam com 1 nome.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Ainda sobra o 13º aluno. Ele vai cair num mês que já tem alguém. Então sempre existe um mês com <b>2 ou mais</b>.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>As outras letras <b>podem</b> acontecer, mas não sempre. Se os 13 nasceram todos em janeiro, a (A) falha. No caso do passo 1 (um mês com 2 e o resto com 1), a (C), a (D) e a (E) falham.</div></div>
+        <div class="resp">✅ Resposta: letra B</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Para riscar uma letra de "com certeza", basta achar <b>um</b> caso em que ela não acontece.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Marcar uma frase que pode acontecer (como a C) achando que já basta. "Com certeza" quer o que vale em todos os casos.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1q6"><div class="corpo"><label for="d1q6">💪 <b>6ª questão, sem ajuda — desafio opcional</b> (6 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=4" target="_blank">prova 2022, 2ª fase, página 4</a> e faz a <b>questão 11</b> (as cartas com figuras). Essa é mais puxada: usa a tabelinha. Se o tempo acabou, pode pular.</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: a figura que está atrás da carta do <b>Sol</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>A pista escondida: duas figuras que aparecem <b>juntas</b> na mesa estão em cartas diferentes. Então uma <b>não</b> pode ser o verso da outra.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Olho a Terra. Na 3ª maneira, ela está junto com o astronauta e a Lua: ✗ nos dois. Na 2ª maneira, está junto com o foguete e a estrela: ✗ nos dois.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Das 6 figuras (Sol, foguete, Lua, Terra, estrela, astronauta), para o verso da Terra só sobrou o <b>Sol</b>. Então atrás do Sol está a Terra.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Confiro riscando as letras: foguete e Lua aparecem junto com o Sol na 1ª maneira, então (A) e (D) não podem. Bate com a resposta.</div></div>
+        <div class="resp">✅ Resposta: letra E (a Terra)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Escolhe a figura que aparece mais vezes na mesa. Ela tem mais ✗ e o verso dela aparece mais rápido.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Ficar só nas figuras do Sol. Ele aparece uma vez só, e não dá para decidir entre estrela, astronauta e Terra olhando só para ele.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d1e"><label for="d1e">⭐ <b>Marca no caderno</b> a questão que achou mais difícil e por quê (1 linha). Errou alguma? Anota o número e conta pro Diogo.</label></div>
+  
+    <div class="dica"><b>Dica do dia 1</b> Antes de marcar a letra, volta na pergunta e confere: ela pediu o que <b>pode</b>, o que <b>NÃO</b> pode ou o que é <b>com certeza</b>?</div>
+    <p class="prog" id="prog1"></p>
+  </section>
+
+  <section class="dia" data-dia="D2" data-data="2026-10-21">
+    <h2>Dia 2 — Contas escondidas em historinhas <span class="tag">Operações</span></h2>
+    <p class="quando">quarta, 21/10 · ⏱ 30 a 40 min</p>
+  
+    <div class="passo"><input type="checkbox" id="d2c"><label for="d2c">🃏 <b>Cartinhas</b> (3 min): abre as <a href="#cartas">🃏 Cartinhas</a> lá em cima, faz a rodada e volta pra cá.</label></div>
+  
+    <div class="passo"><input type="checkbox" id="d2i"><div class="corpo"><label for="d2i">🧠 <b>A ideia de hoje</b> (7 min): na Olimpíada, a conta quase sempre é pequena. O que dá trabalho é descobrir <b>qual</b> conta fazer. Ela fica escondida dentro de uma historinha. Quatro jeitos de achar:</label>
+      <div class="check"><ol style="margin:6px 0 0 20px;padding:0">
+        <li><b>Desenha a historinha antes da conta.</b> Barrinhas para tamanhos e idades, bolinhas para coisas que se contam. O desenho mostra a conta.</li>
+        <li><b>Tira o que é igual dos dois lados.</b> Se dois lados têm a mesma coisa, risca dos dois. O que sobra é a diferença, e ela costuma ser a pista.</li>
+        <li><b>Faz ao contrário.</b> Se a historinha termina num número e pergunta o do começo, volta de trás pra frente: o que foi somado você tira, o que foi tirado você soma.</li>
+        <li><b>Uma conta por linha.</b> Cada linha diz o que você achou ("Ana = 8"). Assim nada se perde no meio do caminho.</li>
+      </ol></div>
+      <details class="res" open><summary>👀 Olha eu pensando em voz alta</summary>
+        <p><em>"Lia tinha umas figurinhas. Ganhou 6 do primo e depois deu 4 para a irmã. Ficou com 10. Quantas ela tinha no começo?"</em></p>
+        <div class="passo-r"><span class="n">1</span><div>Primeiro escrevo no canto o que ela quer: <b>quantas figurinhas no começo</b>.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>A historinha termina no 10 e pergunta o começo. Então vou <b>ao contrário</b>, do fim para o começo.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>A última coisa foi "deu 4". Ao contrário de dar é receber: 10 + 4 = 14. Antes de dar, ela tinha 14.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Antes disso, "ganhou 6". Ao contrário de ganhar é tirar: 14 − 6 = 8. No começo, ela tinha 8.</div></div>
+        <div class="passo-r"><span class="n">5</span><div>Confiro indo pra frente: 8 + 6 = 14, depois 14 − 4 = 10. Bateu com o 10 da historinha! ✅</div></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2q1"><div class="corpo"><label for="d2q1">✏️ <b>1ª questão</b> (4 min) — abre a <a href="../provas/2022-1fase-prova.pdf#page=3" target="_blank">prova 2022, 1ª fase, página 3</a> e faz a <b>questão 10</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Desenha três barrinhas, uma para cada menina. Começa pela única idade que a questão dá. Depois olha bem de quem é a idade que ela pergunta.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: a idade da <b>Beatriz</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>A única idade que a questão dá é a da Carla: 15 anos. Começo por ela.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Ana é 7 anos mais jovem que Carla. A barrinha da Ana é 7 menor: Ana = 15 − 7 = 8.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Ana é 5 anos mais jovem que Beatriz. Então Beatriz é 5 anos mais velha que Ana: Beatriz = 8 + 5 = 13.</div></div>
+        <div class="resp">✅ Resposta: letra C (13 anos)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>"Ana é mais jovem que Beatriz" é o mesmo que "Beatriz é mais velha que Ana". Virar a frase ajuda a ver se é + ou −.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>achar o 8 e marcar a letra A. O 8 é a idade da Ana, e a pergunta é sobre a Beatriz. Por isso se escreve no canto o que ela quer.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2q2"><div class="corpo"><label for="d2q2">✏️ <b>2ª questão</b> (4 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=4" target="_blank">prova 2022, 2ª fase, página 4</a> e faz a <b>questão 13</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>A jarra enche 10 copos e também enche 2 garrafas. Desenha a jarra virando nas 2 garrafas. Quantos copos cabem em <b>uma</b> garrafa?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: quantos <b>copos</b> enchem com <b>3 garrafas</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>A mesma jarra enche 10 copos ou 2 garrafas. Então 2 garrafas = 10 copos.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>1 garrafa = 10 ÷ 2 = 5 copos.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>3 garrafas = 3 × 5 = 15 copos.</div></div>
+        <div class="resp">✅ Resposta: letra C (15 copos)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>quando aparecem duas coisas diferentes (garrafa e copo), primeiro descobre quanto vale <b>uma</b>. Depois fica só multiplicar.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>confundir jarra com garrafa e fazer 2 × 10 = 20 (letra E). Quem enche 10 copos é a jarra, não a garrafa.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2q3"><div class="corpo"><label for="d2q3">✏️ <b>3ª questão</b> (4 min) — abre a <a href="../provas/2024-1fase-prova.pdf#page=2" target="_blank">prova 2024, 1ª fase, página 2</a> e faz a <b>questão 1</b> (a balança).</label>
+      <details><summary>💡 Dica (só se travar)</summary>Um tijolo inteiro é igual a dois meios tijolos. Tem alguma coisa igual nos dois pratos que você pode tirar?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o peso de um tijolo <b>inteiro</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>Num prato: 1 tijolo, que é o mesmo que meio tijolo + meio tijolo. No outro: meio tijolo + 1 quilo.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Os dois pratos têm meio tijolo. Tiro meio tijolo de cada lado, e a balança continua equilibrada.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Sobra: meio tijolo = 1 quilo.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Tijolo inteiro = 1 + 1 = 2 quilos.</div></div>
+        <div class="resp">✅ Resposta: letra D (2 quilos)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>balança equilibrada? Risca o que é igual nos dois pratos. O que sobra continua equilibrado.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>parar em "meio tijolo = 1 quilo" e marcar a letra B. A pergunta é sobre o tijolo inteiro.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2q4"><div class="corpo"><label for="d2q4">✏️ <b>4ª questão</b> (5 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=2" target="_blank">prova 2022, 2ª fase, página 2</a> e faz a <b>questão 4</b> (as bolas nas caixas).</label>
+      <details><summary>💡 Dica (só se travar)</summary>Soma o peso de cada caixa, uma conta por linha. Depois soma as duas caixas juntas: quanto cada caixa tem que ficar no fim?</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o peso da <b>bola que muda de caixa</b> para as duas ficarem com o mesmo peso.</div>
+        <div class="passo-r"><span class="n">1</span><div>Caixa da esquerda: 1 + 2 + 6 = 9 quilos.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Caixa da direita: 1 + 2 + 3 + 4 + 5 = 15 quilos.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>As duas juntas: 9 + 15 = 24 quilos. Para ficarem iguais, cada uma fica com a metade: 24 ÷ 2 = 12 quilos.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>A caixa da esquerda tem 9 e precisa chegar a 12: faltam 12 − 9 = 3. Passa a bola de 3 quilos da direita para a esquerda.</div></div>
+        <div class="passo-r"><span class="n">5</span><div>Confiro: esquerda 9 + 3 = 12; direita 15 − 3 = 12. Iguais! ✅</div></div>
+        <div class="resp">✅ Resposta: letra C (3 quilos)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>a bola que muda de caixa sai de um lado <b>e</b> entra no outro. Por isso ela vale a metade da diferença: 15 − 9 = 6, e a metade de 6 é 3.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>achar a diferença 6 e procurar uma bola de 6 quilos. A bola de 6 está na caixa da esquerda, que já é a mais leve: passar ela deixaria a esquerda com 3 e a direita com 21. A bola que muda de caixa vale a metade da diferença.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2q5"><div class="corpo"><label for="d2q5">💪 <b>5ª questão — sem ajuda</b> (5 min) — abre a <a href="../provas/2024-1fase-prova.pdf#page=2" target="_blank">prova 2024, 1ª fase, página 2</a> e faz a <b>questão 5</b> (os trens).</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o comprimento da <b>locomotiva</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>Os dois trens têm a mesma locomotiva e 2 vagões iguais. O de baixo tem 1 vagão a mais. Tirando o que é igual, sobra 1 vagão.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>1 vagão = 45 − 34 = 11 metros.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>2 vagões = 2 × 11 = 22 metros.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>O trem de cima é locomotiva + 2 vagões = 34. Locomotiva = 34 − 22 = 12 metros.</div></div>
+        <div class="resp">✅ Resposta: letra C (12 metros)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>é a mesma ideia da balança: compara os dois trens, risca o que é igual, e a diferença mostra quanto mede um vagão.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>marcar 11 (letra B). O 11 é o vagão, e a pergunta é sobre a locomotiva.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2q6"><div class="corpo"><label for="d2q6">💪 <b>6ª questão — desafio opcional, sem ajuda</b> (5 min) — abre a <a href="../provas/2023-1fase-prova.pdf#page=4" target="_blank">prova 2023, 1ª fase, página 4</a> e faz a <b>questão 13</b> (a tangerina). Se o tempo acabou, pode deixar para outro dia.</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: quantos gomos tinham <b>3</b> sementes.</div>
+        <div class="passo-r"><span class="n">1</span><div>Desenho 9 bolinhas, uma para cada gomo. Começo pondo 2 sementes em cada uma.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Assim dá 9 × 2 = 18 sementes.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Mas foram 20. Faltam 20 − 18 = 2 sementes.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Cada gomo que passa de 2 para 3 sementes ganha 1 semente a mais. Para ganhar 2 a mais, 2 gomos precisam ter 3 sementes.</div></div>
+        <div class="passo-r"><span class="n">5</span><div>Confiro: 7 gomos com 2 e 2 gomos com 3 dá 7 + 2 = 9 gomos e 14 + 6 = 20 sementes. ✅</div></div>
+        <div class="resp">✅ Resposta: letra B (2 gomos)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>põe primeiro o número menor em todo mundo. Depois vê quanto falta: cada "a mais" é um gomo que tem 3.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>responder 7, que é quantos gomos tinham 2 sementes. A pergunta é sobre os gomos com 3.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d2e"><label for="d2e">⭐ <b>Marca no caderno</b> a questão que achou mais difícil e por quê (1 linha). Errou alguma? Anota o número e conta pro Diogo.</label></div>
+  
+    <div class="dica"><b>Dica do dia 2</b> Antes de marcar a letra, relê a pergunta: em várias questões de hoje, a resposta errada mais tentadora era um número certo, só que da pessoa ou da coisa errada.</div>
+    <p class="prog" id="prog2"></p>
+  </section>
+
+  <section class="dia" data-dia="D3" data-data="2026-10-22">
+    <h2>Dia 3 — Olhar de cima, ver o escondido, virar no espelho <span class="tag">Visão espacial</span></h2>
+    <p class="quando">quinta, 22/10 · ⏱ 30 a 40 min</p>
+  
+    <div class="passo"><input type="checkbox" id="d3c"><label for="d3c">🃏 <b>Cartinhas</b> (3 min): abre as <a href="#cartas">🃏 Cartinhas</a> lá em cima, faz a rodada e volta pra cá.</label></div>
+  
+    <div class="passo"><input type="checkbox" id="d3i"><div class="corpo"><label for="d3i">🧠 <b>A ideia de hoje</b> (7 min): hoje as questões são de <b>olhar</b> com cuidado. São 4 jeitos de olhar:</label>
+      <div class="check"><ol style="margin:6px 0 0 20px;padding:0">
+        <li><b>Vista de cima:</b> olhando de cima, uma torre vira só um quadradinho (o "chão" dela). Primeiro conta quantos cubinhos tem cada torre, depois desenha o chão dela no lugar certo.</li>
+        <li><b>Cubinho escondido:</b> o que está atrás ou embaixo não aparece no desenho, mas existe e conta. Uma pilha não fica flutuando: se tem um cubinho em cima, tem outro segurando embaixo.</li>
+        <li><b>Espelho:</b> no espelho, a esquerda vira direita. No carimbo de mão é igual: quem diz se é mão direita ou esquerda é o <b>lado do dedão</b>.</li>
+        <li><b>Usa coisas de verdade</b> quando der: as suas mãos, blocos, Lego, dados, caixinhas. Montar e olhar ajuda mais que imaginar.</li>
+      </ol></div>
+      <details class="res" open><summary>👀 Olha eu pensando em voz alta</summary>
+        <div class="passo-r"><span class="n">1</span><div>Montei 3 torres numa fila: uma com 2 cubinhos, uma com 1 e uma com 3. Se eu olhar <b>de cima</b>, não vejo a altura. Vejo só 3 quadradinhos em fila. Então escrevo a altura dentro de cada um: 2, 1, 3.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Agora uma pilha de 2 andares: embaixo, 4 cubinhos em quadrado (2 na frente e 2 atrás); em cima, 1 cubinho. Olhando de frente, eu vejo 2 embaixo e 1 em cima. Seriam 3? Não! Os 2 de trás estão <b>escondidos</b>. Total: 4 + 1 = 5 cubinhos.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Ponho a minha mão <b>direita</b> na mesa, palma para baixo. O dedão fica do lado <b>esquerdo</b>. Se eu carimbar assim, o carimbo também fica com o dedão do lado esquerdo. Então: <b>dedão à esquerda → mão direita; dedão à direita → mão esquerda.</b> Não preciso decorar: é só pôr a mão na mesa e olhar.</div></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3q1"><div class="corpo"><label for="d3q1">✏️ <b>1ª questão</b> (5 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=2" target="_blank">prova 2022, 2ª fase, página 2</a> e faz a <b>questão 3</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Para cada carimbo, põe a sua mão em cima da figura, palma para baixo, com os dedos apontando para o mesmo lado. Se encaixa a sua mão direita, é carimbo de mão direita. Marca um D ou um E do lado de cada carimbo.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: quantas crianças <b>esqueceram</b> de carimbar a mão direita.</div>
+        <div class="passo-r"><span class="n">1</span><div>Regra do dedão: na mão direita o dedão fica do lado esquerdo do carimbo; na mão esquerda, do lado direito.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>São 9 carimbos ao todo. Olhando o dedão de cada um, só 3 são de mão direita.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Então 9 − 3 = 6 são de mão esquerda. Todas as crianças carimbaram a esquerda, então são 6 crianças.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>6 crianças, mas só 3 carimbaram a direita. Esqueceram: 6 − 3 = 3 crianças.</div></div>
+        <div class="resp">✅ Resposta: letra C</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>escreve D ou E do lado de cada carimbo enquanto confere. Assim nenhum carimbo é contado duas vezes nem esquecido.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>marcar 6. O 6 é o número de crianças, mas a pergunta é quantas <b>esqueceram</b>. Volta no que ela quer antes de marcar.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3q2"><div class="corpo"><label for="d3q2">✏️ <b>2ª questão</b> (4 min) — abre a <a href="../provas/2023-1fase-prova.pdf#page=2" target="_blank">prova 2023, 1ª fase, página 2</a> e faz a <b>questão 3</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Os carimbos estão girados em roda. Vira a folha (ou a sua mão) até os dedos do carimbo apontarem para cima. Só aí olha de que lado ficou o dedão.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: quantas vezes Marília carimbou a mão <b>esquerda</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>Mão esquerda: com os dedos para cima, o dedão fica do lado <b>direito</b> do carimbo.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Vai carimbo por carimbo, girando a folha ou pondo a sua mão esquerda em cima. A mão esquerda encaixa em exatamente 3 carimbos. Os outros são da mão direita.</div></div>
+        <div class="resp">✅ Resposta: letra C</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>põe a sua mão esquerda sobre a folha, girando o pulso até ficar igual ao carimbo. Se o dedão bate com o dedão do desenho, é mão esquerda.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>olhar o dedão sem girar o carimbo. Num carimbo de cabeça para baixo, "direita" e "esquerda" se trocam. Primeiro deixa os dedos para cima.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3q3"><div class="corpo"><label for="d3q3">✏️ <b>3ª questão</b> (6 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=2" target="_blank">prova 2022, 2ª fase, página 2</a> e faz a <b>questão 5</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Primeiro conta os cubinhos de cada uma das 6 torres e escreve os números no canto. Depois vê quem é vizinho de quem, dando a volta no círculo.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o desenho certo das torres vistas <b>de cima</b>, com o número de cubinhos de cada uma.</div>
+        <div class="passo-r"><span class="n">1</span><div>Contando cubinho por cubinho: a torre mais alta tem 5; duas torres têm 4; uma tem 3; as duas baixinhas têm 2. Números: 2, 2, 3, 4, 4, 5.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Confere os números em cada alternativa. A C tem dois 3 e a E tem três 2. Essas saem. Sobram A, B e D.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Agora a ordem. Dando a volta no círculo a partir da torre de 5, a gente encontra: 5, 4, 2, 2, 4, 3. As duas torres de 2 ficam <b>vizinhas</b>.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Na A e na B as duas de 2 estão separadas. Só na D elas estão lado a lado, e a volta fica 5, 4, 2, 2, 4, 3.</div></div>
+        <div class="resp">✅ Resposta: letra D</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>primeiro confere "quais números" (elimina rápido), depois confere "quem é vizinho de quem".</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>contar errado as torres altas. Conta com a ponta do lápis, um cubinho de cada vez, e anota o número em cima da torre.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3q4"><div class="corpo"><label for="d3q4">✏️ <b>4ª questão</b> (5 min) — abre a <a href="../provas/2025-1fase-prova.pdf#page=4" target="_blank">prova 2025, 1ª fase, página 4</a> e faz a <b>questão 12</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Um pingo de cola é um lugar onde dois cubinhos se encostam, face com face. Em cada peça, conta os encontros de cima para baixo (em pé) e depois os de lado.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: a peça com <b>mais</b> pingos de cola.</div>
+        <div class="passo-r"><span class="n">1</span><div>Todas as peças têm 6 cubinhos. O que muda é quantas vezes eles se encostam.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Peça C: são 2 colunas de 3 cubinhos. Em cada coluna há 2 encontros em pé: 2 + 2 = 4. Em cada um dos 3 andares, os 2 cubinhos se encostam de lado: mais 3. Total: 4 + 3 = 7 pingos.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Contando as outras do mesmo jeito: A tem 5, B tem 6, D tem 5 e E tem 6. A C ganha.</div></div>
+        <div class="resp">✅ Resposta: letra C</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>6 cubinhos em "corrente" usam 5 pingos. Cada quadradinho fechado de 4 cubinhos ganha 1 pingo a mais. A C tem 2 quadradinhos fechados: 5 + 2 = 7.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>contar cubinhos em vez de encontros. A pergunta é sobre a cola, que fica <b>entre</b> dois cubinhos.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3q5"><div class="corpo"><label for="d3q5">💪 <b>5ª questão, sem ajuda</b> (5 min) — abre a <a href="../provas/2023-1fase-prova.pdf#page=3" target="_blank">prova 2023, 1ª fase, página 3</a> e faz a <b>questão 10</b>.</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: qual pilha tem <b>as três</b> vistas ao mesmo tempo (de frente, de lado e de cima).</div>
+        <div class="passo-r"><span class="n">1</span><div>Vista de frente (3 embaixo e 1 em cima, no meio): só servem B e D.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Vista de cima: servem A, C e D.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>A única que está nas duas listas é a D. Conferindo a vista de lado (olhando pela direita), a D também serve.</div></div>
+        <div class="resp">✅ Resposta: letra D</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>usa uma vista de cada vez para riscar alternativas. A que sobrar em todas é a resposta.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>parar na primeira vista que bate. A pilha tem que servir para as três.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3q6"><div class="corpo"><label for="d3q6">💪 <b>6ª questão, sem ajuda — desafio opcional</b> (5 min, só se sobrar tempo e energia) — abre a <a href="../provas/2022-2fase-prova.pdf#page=3" target="_blank">prova 2022, 2ª fase, página 3</a> e faz a <b>questão 8</b>.</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: quantos cubinhos tem a <b>5ª</b> pilha (o desenho só vai até a 4ª).</div>
+        <div class="passo-r"><span class="n">1</span><div>Cada pilha nova é a anterior com um andar novo embaixo. Os andares têm 1, 3, 6, 10 cubinhos. Confere com o texto: 1; 1 + 3 = 4; 1 + 3 + 6 = 10. Bate!</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Cada andar novo ganha uma fileira a mais na beirada: 3 = 1 + 2, 6 = 3 + 3, 10 = 6 + 4. Então o andar novo da 5ª pilha tem 10 + 5 = 15.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>5ª pilha: 1 + 3 + 6 + 10 + 15 = 35 cubinhos.</div></div>
+        <div class="resp">✅ Resposta: letra A</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>antes de seguir o padrão, confere ele com os números que o texto já deu (1, 4, 10).</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>contar só os cubinhos que aparecem no desenho. Os de trás e os de baixo estão escondidos, mas estão lá.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d3e"><label for="d3e">⭐ <b>Marca no caderno</b> a questão que achou mais difícil e por quê (1 linha). Errou alguma? Anota o número e conta pro Diogo.</label></div>
+  
+    <div class="dica"><b>Dica do dia 3</b> — na dúvida, usa as mãos: põe a sua mão em cima do carimbo, ou monta as torres com o que tiver por perto. Olhar de verdade vale mais que adivinhar.</div>
+    <p class="prog" id="prog3"></p>
+  </section>
+
+  <section class="dia" data-dia="D4" data-data="2026-10-23">
+    <h2>Dia 4 — Relógio, calendário e a cerca com postes <span class="tag">Tempo</span></h2>
+    <p class="quando">sexta, 23/10 · ⏱ 30 a 40 min</p>
+  
+    <div class="passo"><input type="checkbox" id="d4c"><label for="d4c">🃏 <b>Cartinhas</b> (3 min): abre as <a href="#cartas">🃏 Cartinhas</a> lá em cima, faz a rodada e volta pra cá.</label></div>
+  
+    <div class="passo"><input type="checkbox" id="d4i"><div class="corpo"><label for="d4i">🧠 <b>A ideia de hoje</b> (7 min): quatro truques de tempo e de contar espaços. Lê com calma.</label>
+      <div class="check"><ol style="margin:6px 0 0 20px;padding:0">
+        <li><b>O calendário anda de 7 em 7.</b> A semana tem 7 dias. Então o mesmo dia da semana cai nos dias 1, 8, 15, 22 e 29. Pula de 7 em 7 até chegar perto, depois anda dia por dia.</li>
+        <li><b>A hora tem 60 minutos.</b> Soma primeiro as horas, depois os minutos. Se os minutos passarem de 60, junta 60 deles e vira mais 1 hora.</li>
+        <li><b>"Atrasado" é somar.</b> Se algo atrasou 20 minutos, acontece 20 minutos <b>depois</b>. E "antes" é voltar no relógio.</li>
+        <li><b>Cerca e postes.</b> Entre 6 postes há 5 espaços, e não 6. Na dúvida, desenha pequeno (bolinha, tracinho, bolinha…) e conta.</li>
+      </ol></div>
+      <details class="res" open><summary>👀 Olha eu pensando em voz alta</summary>
+        <p>"O ônibus sai às 9h40 e a viagem dura 1 hora e 35 minutos. Hoje ele saiu 10 minutos atrasado. A que horas chega?"</p>
+        <div class="passo-r"><span class="n">1</span><div>Atrasado é somar: 9h40 + 10 min = <b>9h50</b>. É a hora que ele saiu de verdade.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Primeiro as horas: 9h + 1h = 10h. Depois os minutos: 50 + 35 = 85 minutos.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>85 passou de 60! Tiro 60 minutos e viro 1 hora: 85 − 60 = 25. Fica 10h + 1h = 11h e sobram 25 min.</div></div>
+        <div class="passo-r"><span class="n">4</span><div>Chega às <b>11h25</b>. Confiro: 9h50 até 10h50 é 1 hora; mais 35 min dá 11h25. ✔️</div></div>
+        <p>E a cerca: "Plantei 4 árvores numa fila, com 2 metros entre uma e outra. Quanto mede a fila?" Desenho: 🌳—🌳—🌳—🌳. São 3 espaços, não 4. Então 3 × 2 = 6 metros.</p>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4q1"><div class="corpo"><label for="d4q1">✏️ <b>1ª questão</b> (3 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=3" target="_blank">prova 2022, 2ª fase, página 3</a> e faz a <b>questão 6</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Se o dia 1 foi sábado, que outros dias de janeiro também foram sábado? Vai de 7 em 7.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o dia da semana de 31 de janeiro.</div>
+        <div class="passo-r"><span class="n">1</span><div>A semana tem 7 dias. Se o dia 1 foi sábado, então 1, 8, 15, 22 e 29 foram todos sábado.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Do 29 ao 31 são 2 dias: 30 é domingo, 31 é segunda.</div></div>
+        <div class="resp">✅ Resposta: letra A (segunda-feira)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Não precisa contar os 31 dias. Pula de 7 em 7 até o mais perto, depois anda o resto.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Contar o dia 29 como "um dia andado". Do 29 ao 31 são só 2 passos: 30 e 31.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4q2"><div class="corpo"><label for="d4q2">✏️ <b>2ª questão</b> (3 min) — abre a <a href="../provas/2022-1fase-prova.pdf#page=2" target="_blank">prova 2022, 1ª fase, página 2</a> e faz a <b>questão 5</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Maria falou isso <b>ontem</b>. Se ela falasse a mesma coisa <b>hoje</b>, o que ela diria? Um dia a menos de espera.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: que dia é <b>hoje</b> (não ontem).</div>
+        <div class="passo-r"><span class="n">1</span><div>Ontem, Maria disse: "depois de amanhã é quarta". Hoje já passou um dia, então hoje ela diria: "<b>amanhã</b> é quarta".</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Se amanhã é quarta, hoje é terça.</div></div>
+        <div class="resp">✅ Resposta: letra B (terça-feira)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Escreve os dias numa linha: ontem · hoje · amanhã · depois de amanhã. Põe "quarta" no último e volta.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Esquecer o "ontem" e responder segunda-feira. Grifa o "ontem" antes de começar.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4q3"><div class="corpo"><label for="d4q3">✏️ <b>3ª questão</b> (5 min) — abre a <a href="../provas/2022-1fase-prova.pdf#page=3" target="_blank">prova 2022, 1ª fase, página 3</a> e faz a <b>questão 6</b> (o relógio).</label>
+      <details><summary>💡 Dica (só se travar)</summary>Primeiro, que horas marca o relógio do lado dos pães? Depois volta 45 minutos. Lembra: o ponteiro pequeno é a hora e o grande é o minuto.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o relógio que mostra a hora em que os pães <b>entraram</b> no forno.</div>
+        <div class="passo-r"><span class="n">1</span><div>O relógio do lado dos pães marca <b>3 horas</b> (pequeno no 3, grande no 12). Foi quando os pães saíram.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Os pães entraram 45 minutos <b>antes</b>. Voltar 1 hora inteira daria 2h00. Mas 45 minutos é menos que 60: sobram 60 − 45 = 15 minutos. Então foi às <b>2h15</b>.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>No relógio, cada número vale 5 minutos. 15 minutos = 3 números, então o ponteiro grande fica no <b>3</b>. O pequeno fica pertinho do <b>2</b>.</div></div>
+        <div class="resp">✅ Resposta: letra B</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>45 minutos antes é o mesmo que "1 hora antes, depois 15 minutos pra frente": 2h00 → 2h15.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Trocar os ponteiros. Confere em cada alternativa: o pequeno perto do 2 e o grande no 3.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4q4"><div class="corpo"><label for="d4q4">✏️ <b>4ª questão</b> (5 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=3" target="_blank">prova 2022, 2ª fase, página 3</a> e faz a <b>questão 7</b>.</label>
+      <details><summary>💡 Dica (só se travar)</summary>Desenha 6 bolinhas (os meninos) numa linha. Quantos espaços tem entre elas? As meninas só ficam nesses espaços.</details>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o total de meninos <b>e</b> meninas na fila.</div>
+        <div class="passo-r"><span class="n">1</span><div>Desenho: M _ M _ M _ M _ M _ M. Entre 6 meninos há 6 − 1 = <b>5 espaços</b>.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Cada espaço tem 3 meninas: 5 × 3 = <b>15 meninas</b>.</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Junto os meninos: 6 + 15 = <b>21</b>.</div></div>
+        <div class="resp">✅ Resposta: letra D (21)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>"Entre" quer dizer espaços. Espaços = quantidade − 1.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Fazer 6 × 3 = 18 (letra C), ou esquecer de somar os 6 meninos no final (dá 15).</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4q5"><div class="corpo"><label for="d4q5">💪 <b>5ª questão, sem ajuda</b> (5 min) — abre a <a href="../provas/2022-2fase-prova.pdf#page=3" target="_blank">prova 2022, 2ª fase, página 3</a> e faz a <b>questão 9</b> (a régua).</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: quantas <b>marcas</b> a régua tem ao todo (não quantos milímetros).</div>
+        <div class="passo-r"><span class="n">1</span><div>A régua está em cm, mas as marcas são de mm. Na tabela das unidades, de cm para mm é 1 casa para a direita: × 10.
+          <div class="escada"><div class="deg"><span>km</span><span>hm</span><span>dam</span><span>m</span><span>dm</span><span class="aqui">cm</span><span class="aqui">mm</span></div><div class="seta"><span>← pra esquerda: <b>÷ 10</b> por casa</span><span>pra direita: <b>× 10</b> por casa →</span></div></div>
+          15 cm = 15 × 10 = <b>150 mm</b>. São 150 espacinhos de 1 mm.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>É a cerca com postes! Os espacinhos são os espaços, e as marcas são os postes. Olha só 1 cm: do 0 ao 1 há 10 espacinhos e <b>11</b> marcas (contando a do 0).</div></div>
+        <div class="passo-r"><span class="n">3</span><div>Marcas = espaços + 1: 150 + 1 = <b>151</b>.</div></div>
+        <div class="resp">✅ Resposta: letra E (151)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Testa com um pedaço pequeno (1 cm) e conta na figura. Se 10 espaços têm 11 marcas, 150 espaços têm 151.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Parar em 150 (letra D) e esquecer a marca do zero.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4q6"><div class="corpo"><label for="d4q6">💪 <b>6ª questão, sem ajuda — desafio opcional</b> (4 min) — abre a <a href="../provas/2023-1fase-prova.pdf#page=3" target="_blank">prova 2023, 1ª fase, página 3</a> e faz a <b>questão 6</b>. Se o tempo acabou, pode pular.</label>
+      <details class="res"><summary>Resolução (só depois de tentar!)</summary>
+        <div class="quer">🎯 O que ela quer: o dia do mês da <b>próxima quarta-feira</b>.</div>
+        <div class="passo-r"><span class="n">1</span><div>Hoje é dia 15, então amanhã é dia 16, e o dia 16 é sexta-feira.</div></div>
+        <div class="passo-r"><span class="n">2</span><div>Ando dia por dia: sábado 17, domingo 18, segunda 19, terça 20, <b>quarta 21</b>.</div></div>
+        <div class="resp">✅ Resposta: letra C (21)</div>
+        <div class="atalho">💡 <b>Atalho de prova:</b> <em>Escreve os números embaixo dos dias da semana, um por linha, até chegar na quarta.</em></div>
+        <div class="esc">⚠️ <b>Escorregão comum:</b> <em>Achar que o dia 15 é sexta. A sexta é <b>amanhã</b>, o dia 16.</em></div>
+      </details>
+    </div></div>
+  
+    <div class="passo"><input type="checkbox" id="d4e"><label for="d4e">⭐ <b>Marca no caderno</b> a questão que achou mais difícil e por quê (1 linha). Errou alguma? Anota o número e conta pro Diogo.</label></div>
+  
+    <div class="dica"><b>Dica do dia 4</b> Contou postes ou marcas? Desenha um pedaço pequeno e confere se é espaços + 1.</div>
+    <p class="prog" id="prog4"></p>
+  </section>
+
+  <section class="dia" data-dia="S1" data-data="2026-10-24">
+    <h2>Sábado — Prova 1 <span class="tag sim">Prova</span></h2>
+    <p class="quando">sábado, 24/10 · ⏱ 1h30 de prova + 5 min pra preparar</p>
+
+    <div class="passo"><input type="checkbox" id="s1a"><label for="s1a">🧰 <b>Prepara</b> (5 min): lápis, borracha, folhas de rascunho e um timer de <b>1h30</b>. Se der, pede pro adulto <b>imprimir</b> a prova: na prova de verdade ela é de papel. Senão, abre no computador.</label></div>
+
+    <div class="passo"><input type="checkbox" id="s1b"><div class="corpo"><label for="s1b">📝 <b>Faz a prova inteira</b> (1h30), sozinha e sem olhar nada: <a href="../provas/2023-2fase-prova.pdf" target="_blank">prova da 2ª fase de 2023</a>.</label>
+      <div class="check"><ul style="margin:6px 0 0 20px;padding:0">
+        <li>Usa os <a href="#como-ler">5 passos de leitura</a> em toda questão.</li>
+        <li>Passou de 6 minutos numa questão? Marca "?" e segue. No fim, volta nas "?".</li>
+        <li>Nenhuma em branco: na dúvida, risca as alternativas impossíveis e escolhe entre as que sobram.</li>
+        <li>Chutou? Escreve <b>"c"</b> do lado do número. Isso ajuda muito na correção.</li>
+      </ul></div>
+    </div></div>
+
+    <div class="passo"><input type="checkbox" id="s1c"><label for="s1c">📮 <b>Escreve as respostas numa folha</b> (1 a 15, com a letra e o "c" das chutadas) e entrega pro Diogo. <b>Não procura o gabarito</b>: a correção vem na segunda, com a resolução das que você errar.</label></div>
+
+    <div class="dica"><b>Dica do sábado</b>Esta prova não vale nota: ela mostra o que treinar nas próximas duas semanas. Errar aqui é ótimo, porque é errar antes da hora.</div>
+    <p class="prog" id="progS1"></p>
+  </section>
+
+  <p class="fim"><button type="button" class="btn-sec" id="ver-tudo">ver o plano inteiro</button></p>
+</div>
+<script>
+  // contagem regressiva até a prova (10/11/2026)
+  (function () {
+    var prova = new Date(2026, 10, 10), hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    var dias = Math.round((prova - hoje) / 86400000);
+    var el = document.getElementById('contagem');
+    el.textContent = dias > 1 ? 'Faltam ' + dias + ' dias' : dias === 1 ? 'É amanhã!' : dias === 0 ? 'É hoje! Boa prova!' : 'Prova feita 🎉';
+  })();
+
+  // mostra só a semana de hoje (segunda a domingo); a troca é automática
+  (function () {
+    var PRIMEIRO = new Date(2026, 9, 19), ULTIMO = new Date(2026, 10, 10); // 19/10 e 10/11
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var base = hoje < PRIMEIRO ? PRIMEIRO : (hoje > ULTIMO ? ULTIMO : hoje);
+    var dia = base.getDay(); // 0 = domingo
+    var seg = new Date(base); seg.setDate(base.getDate() - (dia === 0 ? 6 : dia - 1));
+    var dom = new Date(seg); dom.setDate(seg.getDate() + 6);
+
+    function dm(d) { return ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2); }
+    var nsem = Math.round((seg - PRIMEIRO) / 604800000) + 1;
+    var total = 0;
+
+    document.querySelectorAll('.dia').forEach(function (s) {
+      if (s.hasAttribute('data-adiado')) { // dia remarcado: some da semana, aparece só no plano inteiro
+        s.classList.add('fora');
+        var ha = s.querySelector('h2');
+        if (ha) ha.insertAdjacentHTML('beforeend', ' <span class="hoje-tag" style="background:#5b6475">adiado</span>');
+        return;
+      }
+      var p = (s.getAttribute('data-data') || '').split('-');
+      var d = new Date(+p[0], p[1] - 1, +p[2]);
+      if (d < seg || d > dom || (hoje <= ULTIMO && d < hoje)) { s.classList.add('fora'); return; } // fora da semana ou já passou
+      total++;
+      if (d.getTime() === hoje.getTime()) {
+        s.classList.add('hoje');
+        var h2 = s.querySelector('h2');
+        if (h2) h2.insertAdjacentHTML('beforeend', ' <span class="hoje-tag">hoje</span>');
+      }
+    });
+
+    var tit = document.getElementById('semana-tit'), sub = document.getElementById('semana-sub');
+    tit.textContent = 'Semana ' + nsem + ' de 4 · ' + dm(seg) + ' a ' + dm(dom);
+    sub.textContent = hoje > ULTIMO
+      ? 'Acabou! Mostrando a última semana. 🎉'
+      : total === 0 ? 'Hoje não tem treino novo. Descansa! 😎 Os dias que já passaram ficam em "ver o plano inteiro", lá embaixo.'
+      : 'Aqui aparecem só os dias que faltam nesta semana (' + total + '). Os que já passaram ficam em "ver o plano inteiro", lá embaixo.';
+
+    var btn = document.getElementById('ver-tudo');
+    btn.addEventListener('click', function () {
+      var tudo = document.body.classList.toggle('tudo');
+      btn.textContent = tudo ? 'mostrar só esta semana' : 'ver o plano inteiro';
+      if (!tudo) window.scrollTo(0, 0);
+    });
+  })();
+
+  // cartinhas: rodada curta com repetição espaçada (caixa 1 volta amanhã, 2 em 2 dias, 3 em 4 dias)
+  // "desde" = dia SEGUINTE à aula do assunto (a rodada é no começo do estudo; ajustar se o calendário mudar)
+  (function () {
+    var CARTAS = [
+      { id: 'quero', desde: '2026-10-20', p: 'Antes de começar uma questão, o que eu escrevo no cantinho da folha?', r: 'O que a questão quer, em poucas palavras ("quero: quantas meninas"). No fim, olho o cantinho antes de marcar: é isso mesmo que ela pediu?' },
+      { id: 'd1-armadilhas', desde: '2026-10-21', p: 'Quais são as palavras-armadilha que eu circulo na pergunta?', r: 'NÃO, COM CERTEZA e O MENOR ou O MAIOR POSSÍVEL. Uma palavrinha dessas muda a resposta inteira.' },
+      { id: 'd1-certeza', desde: '2026-10-21', p: 'A pergunta diz COM CERTEZA. Que resposta ela quer?', r: 'A que vale em TODOS os casos. Para riscar uma letra, basta achar um caso em que ela não acontece.' },
+      { id: 'd2-balanca', desde: '2026-10-22', p: 'A balança está equilibrada e a mesma coisa aparece nos dois pratos. O que você pode fazer?', r: 'Tirar dos dois pratos ao mesmo tempo. A balança continua equilibrada e sobra uma conta mais simples.' },
+      { id: 'd2-contrario', desde: '2026-10-22', p: 'A historinha termina num número e pergunta o número do começo. Como você resolve?', r: 'Volta de trás pra frente fazendo a conta contrária: o que foi somado você tira, o que foi tirado você soma. Depois confere indo pra frente.' },
+      { id: 'd3-carimbo', desde: '2026-10-23', p: 'Num carimbo de mão com os dedos para cima, o dedão está do lado esquerdo. Foi a mão direita ou a esquerda?', r: 'Mão direita. Teste: põe a mão direita na mesa, palma para baixo, e olha de que lado fica o dedão.' },
+      { id: 'd3-escondido', desde: '2026-10-23', p: 'Uma pilha tem 4 cubinhos embaixo (2 na frente e 2 atrás) e 1 em cima. De frente você vê só 3. Quantos cubinhos a pilha tem?', r: '5. Os 2 de trás ficam escondidos, mas também contam: 4 + 1 = 5.' },
+      { id: 'd4-postes', desde: '2026-10-24', p: 'Numa fila há 6 postes. Quantos espaços tem entre eles?', r: '5 espaços. Espaços = postes menos 1. Na dúvida, desenha pequeno e conta.' },
+      { id: 'd4-semana', desde: '2026-10-24', p: 'O dia 1 do mês é sábado. Em que outros dias do mês também é sábado?', r: '8, 15, 22 e 29. O calendário anda de 7 em 7.' },
+    ];
+    var POR_RODADA = 8, VOLTA = [1, 2, 4]; // dias até a carta voltar, por caixa
+    function iso(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+    function mais(dias) { var d = new Date(); d.setDate(d.getDate() + dias); return iso(d); }
+    var hoje = iso(new Date());
+    var est = {};
+    try { est = JSON.parse(localStorage.getItem('mirim2:cartas') || '{}') || {}; } catch (e) {}
+    function guardar() { try { localStorage.setItem('mirim2:cartas', JSON.stringify(est)); } catch (e) {} }
+
+    var liberadas = CARTAS.filter(function (c) { return c.desde <= hoje; });
+    var vencidas = liberadas.filter(function (c) { return !est[c.id] || est[c.id].volta <= hoje; });
+    vencidas.sort(function (a, b) { return ((est[a.id] || {}).caixa || 0) - ((est[b.id] || {}).caixa || 0); });
+    var fila = vencidas.slice(0, POR_RODADA), primeira = {}, acertos = 0, total = fila.length;
+
+    var cont = document.getElementById('carta-cont'), carta = document.getElementById('carta'),
+        cp = document.getElementById('carta-p'), cr = document.getElementById('carta-r'), bts = document.getElementById('carta-bts');
+    function botoes(lista) {
+      bts.innerHTML = '';
+      lista.forEach(function (b) {
+        var el = document.createElement('button'); el.type = 'button'; el.textContent = b[0];
+        if (b[2]) el.className = b[2];
+        el.addEventListener('click', b[1]); bts.appendChild(el);
+      });
+    }
+    function mostrar() {
+      if (!fila.length) {
+        cont.textContent = '';
+        cp.textContent = total ? 'Rodada feita! 🎉' : 'Por hoje não tem carta. Volta amanhã! 😎';
+        cr.hidden = !total;
+        cr.textContent = acertos + ' de ' + total + ' de primeira. As que você errou voltam amanhã.';
+        botoes([]); return;
+      }
+      var c = fila[0];
+      cont.textContent = 'Faltam ' + fila.length + (fila.length === 1 ? ' carta' : ' cartas');
+      cp.textContent = c.p; cr.textContent = c.r; cr.hidden = true;
+      botoes([['Virar a carta 🔄', function () {
+        cr.hidden = false;
+        botoes([['Acertei 😀', function () { marcar(true); }, 'ok'], ['Errei 🔁', function () { marcar(false); }, 'nao']]);
+      }]]);
+    }
+    function marcar(acertou) {
+      var c = fila.shift(), s = est[c.id] || { caixa: 0 };
+      if (!(c.id in primeira)) { // só a primeira tentativa do dia conta para a caixa
+        primeira[c.id] = acertou;
+        if (acertou) { acertos++; s.caixa = Math.min(s.caixa + 1, 3); } else { s.caixa = 1; }
+        s.volta = mais(VOLTA[s.caixa - 1]);
+        est[c.id] = s; guardar();
+      }
+      if (!acertou) fila.push(c); // errou: aparece de novo no fim desta rodada
+      mostrar();
+    }
+    mostrar();
+  })();
+
+  // lembra as caixinhas marcadas neste aparelho (se o navegador deixar)
+  (function () {
+    var caixas = document.querySelectorAll('.passo input[type=checkbox]');
+    function salvar(c) { try { localStorage.setItem('mirim2:' + c.id, c.checked ? '1' : '0'); } catch (e) {} }
+    function carregar(c) { try { c.checked = localStorage.getItem('mirim2:' + c.id) === '1'; } catch (e) {} }
+    function progresso() {
+      document.querySelectorAll('.dia').forEach(function (d) {
+        var todas = d.querySelectorAll('input[type=checkbox]'), feitas = d.querySelectorAll('input:checked');
+        var p = d.querySelector('.prog');
+        p.textContent = feitas.length === todas.length ? '✅ Dia completo! Mandou bem.' : feitas.length + ' de ' + todas.length + ' passos feitos';
+      });
+    }
+    caixas.forEach(function (c) { carregar(c); c.addEventListener('change', function () { salvar(c); progresso(); }); });
+    progresso();
+  })();
+</script>
+</body>
+</html>
