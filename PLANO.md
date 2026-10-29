@@ -51,15 +51,17 @@ Cartinhas que vêm do CMB, se o tema aparecer nas provas: `quero` (escrever no c
 - **Dia seguinte de estudo (+15 min):** confere com o gabarito e faz o "refaz agora" das erradas e das chutadas.
   O Claude monta as resoluções depois de ver o resultado.
 
-## Calendário
+## Calendário (refeito em 29/10: ela só começou hoje)
+Combinado em 29/10: estuda também nos domingos e no feriado, mantém 30–40 min por dia e faz **2 provas** de sábado
+(2023 e 2025). A 2024 deixa de ser reservada e vira banco de treino dos dias de semana.
+
 | Semana | Dias |
 |---|---|
-| 1 | seg 19 descanso do CMB · ter 20 a sex 23: 4 temas fortes e leves · **sáb 24: prova 1 (diagnóstico)** |
-| 2 | seg 26: correção · ter 27 a sex 30: temas pesados, priorizando os erros · **sáb 31: prova 2** |
-| 3 | seg 02/11 feriado · ter 03: correção · qua 04 a sex 06: temas · **sáb 07: prova 3** |
+| 1 | qui 29: D1 lógica · sex 30: D2 operações · **sáb 31: prova 2023 (diagnóstico)** · dom 01: D3 visão espacial |
+| 2 | seg 02: correção da 2023 + D4 tempo · ter 03: dado e cubo · qua 04 a sex 06: temas dos erros · **sáb 07: prova 2025 (ensaio geral)** · dom 08: correção da 2025 |
 | Final | seg 09: leve (cartinhas e as conferências) · **ter 10: PROVA** |
 
-As semanas 2 e 3 são rascunho e são montadas depois de cada sábado.
+A semana 2 é rascunho e é montada depois do sábado 31.
 **Se faltar tempo:** corta a revisão, não o conteúdo, na ordem do peso dos temas.
 
 ## Fluxo com o Diogo
