@@ -25,7 +25,7 @@ A página agora conta "Semana 1 de 3" a partir de 26/10, e as cartinhas tiveram 
 6/6 certas (conferido pela foto contra o gabarito). Achou fácil. Abriu a dica só na Q2 (cinco meninas), porque leu
 "alguém" onde estava "ninguém". Usou sozinha o método do dia: circulou as armadilhas, testou A–E e montou tabelinha.
 → Lógica é ponto forte; o risco é a leitura rápida. Semana 2: menos lógica, mais visão espacial e dado/cubo.
-   Proposta pendente: pôr NINGUÉM/ALGUÉM na cartinha `d1-armadilhas`.
+   Diogo: o "ninguém/alguém" foi deslize, não vira cartinha; treina com questões.
 
 ## Próximo passo
 1. Sáb 31: o Diogo manda as respostas da prova 2023 (com "c" nas chutadas) → corrigir.
