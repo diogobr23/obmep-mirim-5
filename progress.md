@@ -21,6 +21,12 @@ A criança não fez a semana 1 e começou só hoje. Os 4 dias prontos e a prova 
 (ver `PLANO.md`): D1 29/10 · D2 30/10 · S1 31/10 · D3 01/11 · D4 02/11. O card S1 foi movido para antes do D3 no HTML.
 A página agora conta "Semana 1 de 3" a partir de 26/10, e as cartinhas tiveram o `desde` ajustado.
 
+## 29/10 — resultado do D1
+6/6 certas (conferido pela foto contra o gabarito). Achou fácil. Abriu a dica só na Q2 (cinco meninas), porque leu
+"alguém" onde estava "ninguém". Usou sozinha o método do dia: circulou as armadilhas, testou A–E e montou tabelinha.
+→ Lógica é ponto forte; o risco é a leitura rápida. Semana 2: menos lógica, mais visão espacial e dado/cubo.
+   Proposta pendente: pôr NINGUÉM/ALGUÉM na cartinha `d1-armadilhas`.
+
 ## Próximo passo
 1. Sáb 31: o Diogo manda as respostas da prova 2023 (com "c" nas chutadas) → corrigir.
 2. ⚠️ Até **dom 01/11**: montar e publicar a semana 2 (correção 2023 em seg 02, dado e cubo em ter 03, temas dos erros
