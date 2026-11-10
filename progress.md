@@ -27,6 +27,13 @@ A página agora conta "Semana 1 de 3" a partir de 26/10, e as cartinhas tiveram 
 → Lógica é ponto forte; o risco é a leitura rápida. Semana 2: menos lógica, mais visão espacial e dado/cubo.
    Diogo: o "ninguém/alguém" foi deslize, não vira cartinha; treina com questões.
 
+## 10/11 — prova 2024 (2ª fase) feita e corrigida
+11/14 (conferido contra o gabarito oficial). Errou a 8 (12 em vez de 10: esqueceu o "cores diferentes"), a 10 (5h30 em vez de
+4h30: no "e meia" pegou o número maior) e a 11 (achou a conta do 110 da Duda, mas marcou Beto). A Q14 não conta, porque a
+impressão P&B apagou a peça amarela. → Erros de leitura/conferência, não de conta. Card "Correção — prova 2024" (C24, data
+10/11) entrou no roteiro com as resoluções.
+⚠️ Ao imprimir prova, usar impressão colorida (Q12 e Q14 dependem de cor).
+
 ## Próximo passo
 1. Sáb 31: o Diogo manda as respostas da prova 2023 (com "c" nas chutadas) → corrigir.
 2. ⚠️ Até **dom 01/11**: montar e publicar a semana 2 (correção 2023 em seg 02, dado e cubo em ter 03, temas dos erros
